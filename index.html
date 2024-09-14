@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle for Shiwangi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>Since you love Puzzles</h1>
+        </div>
+
+        <!-- Step 1: Caesar Cipher Puzzle -->
+        <div id="step1" class="step">
+            <div class="puzzle-box">
+                <h2>Puzzle 1: Decode the Hidden Message</h2>
+                <p>"e wcqfsp sj glerki."</p>
+                <input type="text" id="userResponse1" placeholder="Your answer">
+                <button onclick="checkAnswer(1)">Submit</button>
+                <p id="hint1" class="hint">Hint: Shift each letter four places back.</p>
+                <p id="feedback1" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Step 2: Rearrange Sentence Puzzle -->
+        <div id="step2" class="step hidden">
+            <div class="puzzle-box">
+                <h2>Puzzle 2: Rearrange the Words to Form a Clue</h2>
+                <div id="rearrange-words">
+                    <span draggable="true">beauty</span>
+                    <span draggable="true">carries</span>
+                    <span draggable="true">unseen</span>
+                </div>
+                <button onclick="checkAnswer(2)">Submit</button>
+                <p id="hint2" class="hint">Hint: Rearrange the words to make a meaningful phrase.</p>
+                <p id="feedback2" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Step 3: Word Scramble Puzzle -->
+        <div id="step3" class="step hidden">
+            <div class="puzzle-box">
+                <h2>Puzzle 3: Unscramble the Word to Discover the Hint</h2>
+                <p>nosrtoitamnf</p>
+                <input type="text" id="userResponse3" placeholder="Your answer">
+                <button onclick="checkAnswer(3)">Submit</button>
+                <p id="hint3" class="hint">Hint: Rearrange the letters to form a meaningful word.</p>
+                <p id="feedback3" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Final Step: Solve the Combined Riddle -->
+        <div id="finalStep" class="step hidden">
+            <div class="puzzle-box">
+                <h2>Final Puzzle: Solve the Riddle</h2>
+                <p>Using the clues you've uncovered: "A symbol of change, carries beauty unseen, wings of transformation."</p>
+                <input type="text" id="finalRiddleAnswer" placeholder="Your answer">
+                <button onclick="checkFinalAnswer()">Submit</button>
+                <p id="finalHint" class="hint">Hint: Think of something that represents change and beauty.</p>
+                <p id="finalFeedback" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Final Reveal -->
+        <div id="final" class="step hidden">
+            <div class="final-box">
+                <h2>Congratulations!</h2>
+                <p>You've solved the puzzle!</p>
+                <button onclick="showNote()">Reveal the Special Note</button>
+            </div>
+        </div>
+
+        <!-- Full Note Page -->
+        <div id="fullNote" class="step hidden">
+            <div class="note-box">
+                <h2>The Note</h2>
+                <p>"Hey Shiwangi,</p>
+                <p>Every morning when I wake up and see your messages or snaps, it brightens my day. I know you think I’m exaggerating when I say you look beautiful, but it's the truth. In your ethnic outfits, with that natural grace of yours, you make every morning special for me, even if it's just through a screen.</p>
+                <p>Did you know that butterflies, because of the way their eyes are placed, can't actually see their own wings? They can't see the beautiful patterns and colors they carry. It's interesting, isn't it? Just like those butterflies, you might not always see how amazing and beautiful you are, but trust me, I see it every day. This pendant is a little reminder of that beauty and grace that you carry so effortlessly. I hope it brings a smile to your face every time you wear it, just like you bring a smile to mine.</p>
+                <p>Yours,  
+                Nilesh"</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
