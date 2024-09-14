@@ -1,3 +1,18 @@
+let selectedWords = [];
+
+function selectWord(wordElement) {
+    // Add the word to the selectedWords array if not already selected
+    if (!selectedWords.includes(wordElement)) {
+        selectedWords.push(wordElement);
+        wordElement.style.backgroundColor = '#b68d40'; // Highlight selected word
+    }
+}
+
+function getSelectedWordsOrder() {
+    // Combine selected words into a single string
+    return selectedWords.map(word => word.textContent).join(' ').toLowerCase().trim();
+}
+
 function checkAnswer(currentStep) {
     const answers = {
         1: 'a symbol of change',
@@ -7,7 +22,7 @@ function checkAnswer(currentStep) {
 
     let userResponse;
     if (currentStep === 2) {
-        userResponse = getRearrangedSentence();
+        userResponse = getSelectedWordsOrder();
     } else {
         userResponse = document.getElementById(`userResponse${currentStep}`).value.toLowerCase().trim();
     }
@@ -30,12 +45,13 @@ function checkAnswer(currentStep) {
     } else {
         feedbackElement.textContent = 'Try again!';
         feedbackElement.style.color = '#d32f2f';
-    }
-}
 
-function getRearrangedSentence() {
-    const rearrangedWords = Array.from(document.querySelectorAll('#rearrange-words span'));
-    return rearrangedWords.map(span => span.textContent).join(' ').toLowerCase().trim();
+        // Reset the selection for puzzle 2
+        if (currentStep === 2) {
+            selectedWords.forEach(word => word.style.backgroundColor = '#d3b8ae');
+            selectedWords = [];
+        }
+    }
 }
 
 function checkFinalAnswer() {
@@ -56,8 +72,13 @@ function checkFinalAnswer() {
     }
 }
 
+function showNote() {
+    document.getElementById('final').classList.add('hidden');
+    document.getElementById('fullNote').classList.remove('hidden');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    const words = document.querySelectorAll('#rearrange-words span');
+    const words = document.querySelectorAll('#reorder-words span');
     let draggedElement = null;
 
     words.forEach(word => {
@@ -79,8 +100,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
-function showNote() {
-    document.getElementById('final').classList.add('hidden');
-    document.getElementById('fullNote').classList.remove('hidden');
-}
