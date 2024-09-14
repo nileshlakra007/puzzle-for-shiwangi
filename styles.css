@@ -86,16 +86,19 @@ input[type="text"] {
     font-size: 1.2em;
 }
 
-#rearrange-words span {
+/* Tap to Reorder Words */
+#reorder-words span {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none;
     display: inline-block;
     margin: 5px;
     padding: 5px 10px;
     background-color: #d3b8ae;
     border-radius: 5px;
-    cursor: move;
+    cursor: pointer; /* Change to pointer to indicate clickability */
 }
 
-/* Enhancements for the note */
 .note-box {
     border: 3px solid #b68d40;
     padding: 30px;
