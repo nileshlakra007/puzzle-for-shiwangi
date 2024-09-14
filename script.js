@@ -1,10 +1,14 @@
 let selectedWords = [];
 
 function selectWord(wordElement) {
-    // Add the word to the selectedWords array if not already selected
+    // Toggle selection
     if (!selectedWords.includes(wordElement)) {
         selectedWords.push(wordElement);
         wordElement.style.backgroundColor = '#b68d40'; // Highlight selected word
+    } else {
+        // If already selected, deselect
+        selectedWords = selectedWords.filter(word => word !== wordElement);
+        wordElement.style.backgroundColor = '#d3b8ae';
     }
 }
 
@@ -76,27 +80,3 @@ function showNote() {
     document.getElementById('final').classList.add('hidden');
     document.getElementById('fullNote').classList.remove('hidden');
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    const words = document.querySelectorAll('#reorder-words span');
-    let draggedElement = null;
-
-    words.forEach(word => {
-        word.addEventListener('dragstart', () => {
-            draggedElement = word;
-        });
-
-        word.addEventListener('dragover', (e) => {
-            e.preventDefault();
-        });
-
-        word.addEventListener('drop', () => {
-            if (draggedElement) {
-                const temp = draggedElement.textContent;
-                draggedElement.textContent = word.textContent;
-                word.textContent = temp;
-                draggedElement = null;
-            }
-        });
-    });
-});
