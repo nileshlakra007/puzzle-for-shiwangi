@@ -20,22 +20,22 @@
                 <p>"e wcqfsp sj glerki."</p>
                 <input type="text" id="userResponse1" placeholder="Your answer">
                 <button onclick="checkAnswer(1)">Submit</button>
-                <p id="hint1" class="hint">Hint: Caesar Cipher by four.</p>
+                <p id="hint1" class="hint">Hint: Shift each letter four places back.</p>
                 <p id="feedback1" class="feedback"></p>
             </div>
         </div>
 
-        <!-- Step 2: Rearrange Sentence Puzzle -->
+        <!-- Step 2: Tap to Reorder Words Puzzle -->
         <div id="step2" class="step hidden">
             <div class="puzzle-box">
-                <h2>Puzzle 2: Rearrange the Words to Form a Clue</h2>
-                <div id="rearrange-words">
-                    <span draggable="true">beauty</span>
-                    <span draggable="true">carries</span>
-                    <span draggable="true">unseen</span>
+                <h2>Puzzle 2: Tap to Reorder the Words</h2>
+                <div id="reorder-words">
+                    <span onclick="selectWord(this)">beauty</span>
+                    <span onclick="selectWord(this)">carries</span>
+                    <span onclick="selectWord(this)">unseen</span>
                 </div>
                 <button onclick="checkAnswer(2)">Submit</button>
-                <p id="hint2" class="hint">Hint: Rearrange the words to make a meaningful phrase.</p>
+                <p id="hint2" class="hint">Hint: Tap the words in the correct order to form a meaningful phrase.</p>
                 <p id="feedback2" class="feedback"></p>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <p>nosrtoitamnf</p>
                 <input type="text" id="userResponse3" placeholder="Your answer">
                 <button onclick="checkAnswer(3)">Submit</button>
-                <p id="hint3" class="hint">Hint: Another word for it - Conversion or Change. </p>
+                <p id="hint3" class="hint">Hint: Rearrange the letters to form a meaningful word.</p>
                 <p id="feedback3" class="feedback"></p>
             </div>
         </div>
